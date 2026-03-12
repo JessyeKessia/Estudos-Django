@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title> Jessye teste </title>
+</head>
+<body>
+    <h1>Página Inicial</h1>
+
+    {% if is_logged_in %}
+    <p>Bem-vindo de volta!</p>
+    {% else %}
+    <p>Faça login para continuar.</p>
+    {% endif %}
+
+    {% if role == "admin" %}
+    <p>Você é um administrador do sistema.</p>
+    {% elif role == "user" %}
+    <p>Você é um usuário comum.</p>
+    {% endif %}
+</body>
