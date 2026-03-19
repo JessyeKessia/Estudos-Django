@@ -56,3 +56,6 @@ def contato(request, telefone):
         "telefone": telefone
     }
     return render(request, "contato.html", context)
+
+def home2(request):
+    return render(request, 'home2.html')
