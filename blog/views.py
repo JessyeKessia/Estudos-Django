@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 from datetime import date
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from .models import Autor, Editora, Livro
+from .forms import AutorForm, EditoraForm, LivroForm
 
 # Create your views here.
 def welcome(request):
@@ -10,9 +14,8 @@ def welcome(request):
 def eco(request, text):
   return HttpResponse(f'Você digitou: {text}')
 
-# request com o meu nome
+
 def hora(request):
-  # envia as variáveis como contexto para ser rederizado
   context = {
     "nome": "Jessye",
     "data": date.today()
@@ -59,3 +62,45 @@ def contato(request, telefone):
 
 def home2(request):
     return render(request, 'home2.html')
+
+# --- CRUD AUTOR ---
+class AutorListView(ListView): model = Autor
+class AutorCreateView(CreateView):
+    model = Autor
+    form_class = AutorForm
+    success_url = reverse_lazy('autor_list')
+class AutorUpdateView(UpdateView):
+    model = Autor
+    form_class = AutorForm
+    success_url = reverse_lazy('autor_list')
+class AutorDeleteView(DeleteView):
+    model = Autor
+    success_url = reverse_lazy('autor_list')
+
+# --- CRUD EDITORA ---
+class EditoraListView(ListView): model = Editora
+class EditoraCreateView(CreateView):
+    model = Editora
+    form_class = EditoraForm
+    success_url = reverse_lazy('editora_list')
+class EditoraUpdateView(UpdateView):
+    model = Editora
+    form_class = EditoraForm
+    success_url = reverse_lazy('editora_list')
+class EditoraDeleteView(DeleteView):
+    model = Editora
+    success_url = reverse_lazy('editora_list')
+
+# --- CRUD LIVRO ---
+class LivroListView(ListView): model = Livro
+class LivroCreateView(CreateView):
+    model = Livro
+    form_class = LivroForm
+    success_url = reverse_lazy('livro_list')
+class LivroUpdateView(UpdateView):
+    model = Livro
+    form_class = LivroForm
+    success_url = reverse_lazy('livro_list')
+class LivroDeleteView(DeleteView):
+    model = Livro
+    success_url = reverse_lazy('livro_list')
