@@ -1,0 +1,10 @@
+<!-- templates/blog/autor_form.html -->
+<h1>{% if autor %}Editar{% else %}Novo{% endif %} Autor</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if autor %}Salvar Alterações{% else %}Criar Autor{% endif %}</button>
+</form>
+
+<a href="{% url 'blog:autor_list' %}">Voltar para a lista de autores</a>

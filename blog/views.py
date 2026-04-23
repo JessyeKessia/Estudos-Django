@@ -63,8 +63,11 @@ def contato(request, telefone):
 def home2(request):
     return render(request, 'home2.html')
 
-# --- CRUD AUTOR ---
-class AutorListView(ListView): model = Autor
+
+class AutorListView(ListView): 
+    model = Autor
+    template_name = 'blog/autor_list.html'  
+    context_object_name = 'autores'
 class AutorCreateView(CreateView):
     model = Autor
     form_class = AutorForm
@@ -77,8 +80,11 @@ class AutorDeleteView(DeleteView):
     model = Autor
     success_url = reverse_lazy('autor_list')
 
-# --- CRUD EDITORA ---
-class EditoraListView(ListView): model = Editora
+
+class EditoraListView(ListView): 
+    model = Editora
+    template_name = 'blog/editora_list.html' 
+    context_object_name = 'editoras'
 class EditoraCreateView(CreateView):
     model = Editora
     form_class = EditoraForm
@@ -92,7 +98,10 @@ class EditoraDeleteView(DeleteView):
     success_url = reverse_lazy('editora_list')
 
 # --- CRUD LIVRO ---
-class LivroListView(ListView): model = Livro
+class LivroListView(ListView): 
+    model = Livro
+    template_name = 'blog/livros.html' 
+    context_object_name = 'livros'
 class LivroCreateView(CreateView):
     model = Livro
     form_class = LivroForm

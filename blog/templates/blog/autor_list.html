@@ -1,0 +1,24 @@
+<!-- templates/blog/autor_list.html -->
+<h1>Lista de Autores</h1>
+
+<a href="{% url 'blog:autor_form' %}">Novo Autor</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in object_list %}
+            <tr>
+                <td>{{ autor.nome }}</td>
+                <td>
+                    <a href="{% url 'blog:autor_update' autor.pk %}">Editar</a>
+                    <a href="{% url 'blog:autor_delete' autor.pk %}">Deletar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
