@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseNotAllowed
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.contrib.auth.decorators import login_required, permission_required
-
+from rest_framework import viewsets
+from .serializers import AutorSerializer, EditoraSerializer
 
 # -------- EDITORA --------
 
@@ -148,3 +149,12 @@ def logout_view(request):
         return HttpResponseNotAllowed(['POST'])
     logout(request)
     return redirect('signin')
+
+class AutorViewSet(viewsets.ModelViewSet):
+    queryset = Autor.objects.all()
+    serializer_class = AutorSerializer
+
+
+class EditoraViewSet(viewsets.ModelViewSet):
+    queryset = Editora.objects.all()
+    serializer_class = EditoraSerializer
