@@ -2,18 +2,36 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 from datetime import date
-from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import Autor, Editora, Livro
-from .forms import AutorForm, EditoraForm, LivroForm
 
-# Create your views here.
+
+def home(request):
+    return render(request, "home.html")  
 def welcome(request):
   return HttpResponse("Bem-vindo ao meu blog!")
 
 def eco(request, text):
   return HttpResponse(f'Você digitou: {text}')
 
+def nome(request):
+    # Simulando um nome vindo da URL ou fixo
+    nome_usuario = "Jessye"
+
+    # Lista de produtos como no seu template
+    lista_bagulhos = [
+        {"nome": "Notebook", "preco": 3500},
+        {"nome": "Mouse", "preco": 120},
+        {"nome": "Teclado", "preco": 200},
+    ]
+
+    context = {
+        "nome": nome_usuario,
+        "now": datetime.now(),       
+        "is_logged_in": True,        
+        "role": "admin",             
+        "lista_bagulhos": lista_bagulhos
+    }
+
+    return render(request, "nome.html", context)
 
 def hora(request):
   context = {
@@ -59,57 +77,3 @@ def contato(request, telefone):
         "telefone": telefone
     }
     return render(request, "contato.html", context)
-
-def home2(request):
-    return render(request, 'home2.html')
-
-
-class AutorListView(ListView): 
-    model = Autor
-    template_name = 'blog/autor_list.html'  
-    context_object_name = 'autores'
-class AutorCreateView(CreateView):
-    model = Autor
-    form_class = AutorForm
-    success_url = reverse_lazy('autor_list')
-class AutorUpdateView(UpdateView):
-    model = Autor
-    form_class = AutorForm
-    success_url = reverse_lazy('autor_list')
-class AutorDeleteView(DeleteView):
-    model = Autor
-    success_url = reverse_lazy('autor_list')
-
-
-class EditoraListView(ListView): 
-    model = Editora
-    template_name = 'blog/editora_list.html' 
-    context_object_name = 'editoras'
-class EditoraCreateView(CreateView):
-    model = Editora
-    form_class = EditoraForm
-    success_url = reverse_lazy('editora_list')
-class EditoraUpdateView(UpdateView):
-    model = Editora
-    form_class = EditoraForm
-    success_url = reverse_lazy('editora_list')
-class EditoraDeleteView(DeleteView):
-    model = Editora
-    success_url = reverse_lazy('editora_list')
-
-# --- CRUD LIVRO ---
-class LivroListView(ListView): 
-    model = Livro
-    template_name = 'blog/livros.html' 
-    context_object_name = 'livros'
-class LivroCreateView(CreateView):
-    model = Livro
-    form_class = LivroForm
-    success_url = reverse_lazy('livro_list')
-class LivroUpdateView(UpdateView):
-    model = Livro
-    form_class = LivroForm
-    success_url = reverse_lazy('livro_list')
-class LivroDeleteView(DeleteView):
-    model = Livro
-    success_url = reverse_lazy('livro_list')
