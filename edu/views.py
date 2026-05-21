@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseNotAllowed
 from django.utils.http import url_has_allowed_host_and_scheme
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 # -------- EDITORA --------
@@ -53,7 +54,7 @@ def listar_livros(request):
     return render(request, 'livros/listar.html', {'livros': livros})
 
 @login_required
-@permission_required('edu.add_livro')
+@permission_required('edu.add_livro', raise_exception=True)
 def criar_livro(request):
     form = LivroForm(request.POST or None)
     if form.is_valid():
@@ -62,7 +63,7 @@ def criar_livro(request):
     return render(request, 'livros/form.html', {'form': form})
 
 @login_required 
-@permission_required('edu.edit_livro')
+@permission_required('edu.change_livro', raise_exception=True)
 def editar_livro(request, id):
     livro = Livro.objects.get(id=id)
     form = LivroForm(request.POST or None, instance=livro)
@@ -72,7 +73,7 @@ def editar_livro(request, id):
     return render(request, 'livros/form.html', {'form': form})
 
 @login_required
-@permission_required('edu.delete_livro')
+@permission_required('edu.delete_livro',  raise_exception=True)
 def deletar_livro(request, id):
     livro = Livro.objects.get(id=id)
     livro.delete()
