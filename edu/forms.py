@@ -28,7 +28,7 @@ class LivroForm(forms.ModelForm):
     
     def clean_publicacao(self):
         publicacao = self.cleaned_data.get('publicacao')
-        if publicacao and publicacao > timezone.now():
+        if publicacao and publicacao > timezone.now().date():
             raise forms.ValidationError('Essa data está no futuro')
         return publicacao
 
