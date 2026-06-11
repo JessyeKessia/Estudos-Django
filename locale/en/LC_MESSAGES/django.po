@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-11 20:24+0000\n"
+"POT-Creation-Date: 2026-06-11 21:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,49 +18,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: edu/templates/baseedu.html:27
+#: edu/templates/baseedu.html:30
 msgid "Entrar"
 msgstr "Login"
 
-#: edu/templates/baseedu.html:30
+#: edu/templates/baseedu.html:33
 msgid "Registrar"
-msgstr "Register"
+msgstr ""
 
-#: edu/templates/baseedu.html:34
+#: edu/templates/baseedu.html:37
 msgid "Olá"
 msgstr "Hello"
 
-#: edu/templates/baseedu.html:40
+#: edu/templates/baseedu.html:43
 msgid "Logout"
 msgstr ""
 
-#: edu/templates/baseedu.html:46
+#: edu/templates/baseedu.html:49
 msgid "Livros"
-msgstr "Books"
+msgstr ""
 
-#: edu/templates/baseedu.html:50
+#: edu/templates/baseedu.html:53
 msgid "Autores"
-msgstr "Authors"
+msgstr ""
 
-#: edu/templates/baseedu.html:54
+#: edu/templates/baseedu.html:57
 msgid "Editoras"
-msgstr "Publishers"
+msgstr ""
 
 #: edu/templates/homeedu.html:14
 msgid "Cadastrar"
-msgstr "Create"
-
-#: myapp/settings.py:121
-msgid "Português"
-msgstr "Portuguese"
-
-#: myapp/settings.py:122
-msgid "English"
-msgstr "Inglês"
+msgstr ""
 
 #: venv/lib/python3.11/site-packages/django/contrib/messages/apps.py:16
 msgid "Messages"
-msgstr "Messagem"
+msgstr ""
 
 #: venv/lib/python3.11/site-packages/django/contrib/sitemaps/apps.py:8
 msgid "Site Maps"
@@ -334,8 +326,8 @@ msgstr ""
 #: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1562
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
 
 #: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1570
@@ -361,8 +353,8 @@ msgstr ""
 #: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1864
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
-"uuuuuu] format."
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
 
 #: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1868
@@ -1193,8 +1185,8 @@ msgstr ""
 #: venv/lib/python3.11/site-packages/django/views/generic/dates.py:680
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
 msgstr ""
 
 #: venv/lib/python3.11/site-packages/django/views/generic/dates.py:720

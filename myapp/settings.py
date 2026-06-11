@@ -118,8 +118,8 @@ USE_I18N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ('pt-br', _('Português')),
-    ('en', _('English')),
+    ('pt-br', 'Português'),
+    ('en', 'English'),
 ]
 
 LOCALE_PATHS = [
