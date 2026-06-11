@@ -1,5 +1,6 @@
 {% extends 'baseedu.html' %}
 {% if user.is_authenticated %}
+{% load i18n %}
 <div class="d-flex justify-content-end mb-3">
     <span class="me-2">Olá, {{ user.username }}!</span>
     <form method="post" action="{% url 'logout' %}">
@@ -10,7 +11,7 @@
 {% else %}
 <div class="d-flex justify-content-end mb-3">
     <a href="{% url 'signin' %}" class="btn btn-outline-primary btn-sm me-2">Login</a>
-    <a href="{% url 'signup' %}" class="btn btn-outline-success btn-sm">Cadastrar</a>
+    <a href="{% url 'signup' %}" class="btn btn-outline-success btn-sm">{% trans "Cadastrar" %}</a>
 </div>
 {% endif %}
 

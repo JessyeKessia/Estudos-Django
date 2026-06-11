@@ -12,20 +12,47 @@
 <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container">
         <span class="navbar-brand">📚 Biblioteca</span>
-        <div>
-            {% if not request.user.is_authenticated %}
-                <a href="/edu/signin/" class="btn btn-outline-light btn-sm">Entrar</a>
-                <a href="/edu/signup/" class="btn btn-outline-light btn-sm">Registrar</a>
-            {% else %}
-            <span class="navbar-brand">Olá, {{ request.user.username }}</span>
-            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+       <div class="d-flex align-items-center gap-2">
+            <form action="{% url 'set_language' %}" method="post" class="d-inline">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
+                    <option value="pt-br">Português</option>
+                    <option value="en">English</option>
+                </select>
             </form>
+
+            {% if not request.user.is_authenticated %}
+                <a href="/edu/signin/" class="btn btn-outline-light btn-sm">
+                    {% trans "Entrar" %}
+                </a>
+                <a href="/edu/signup/" class="btn btn-outline-light btn-sm">
+                    {% trans "Registrar" %}
+                </a>
+            {% else %}
+                <span class="navbar-brand">
+                    {% trans "Olá" %}, {{ request.user.username }}
+                </span>
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-light btn-sm">
+                        {% trans "Logout" %}
+                    </button>
+                </form>
             {% endif %}
-            <a href="/edu/livros/" class="btn btn-outline-light btn-sm">Livros</a>
-            <a href="/edu/autores/" class="btn btn-outline-light btn-sm">Autores</a>
-            <a href="/edu/editoras/" class="btn btn-outline-light btn-sm">Editoras</a>
+
+            <a href="/edu/livros/" class="btn btn-outline-light btn-sm">
+                {% trans "Livros" %}
+            </a>
+
+            <a href="/edu/autores/" class="btn btn-outline-light btn-sm">
+                {% trans "Autores" %}
+            </a>
+
+            <a href="/edu/editoras/" class="btn btn-outline-light btn-sm">
+                {% trans "Editoras" %}
+            </a>
+
         </div>
     </div>
 </nav>
